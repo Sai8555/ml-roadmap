@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Machine Learning Roadmap</title>
+  <meta name="description" content="A comprehensive, interactive roadmap to mastering Machine Learning from mathematical foundations to production MLOps.">
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- KaTeX for rendering equations -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+
+  <!-- Highlight.js for code formatting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/tokyo-night-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+
+  <!-- Stylesheet link -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Floating background gradients -->
+  <div class="glow-bg-blob blob-1"></div>
+  <div class="glow-bg-blob blob-2"></div>
+  <div class="glow-bg-blob blob-3"></div>
+
+  <div class="app-container">
+    <header class="app-header">
+      <div class="brand">
+        <span class="badge-accent">Mastery Guide</span>
+        <h1>Machine Learning <span class="gradient-text">Roadmap</span></h1>
+        <p class="subtitle">An interactive, end-to-end curriculum to master mathematical foundations, classical algorithms, deep learning architectures, generative AI, and MLOps.</p>
+      </div>
+
+      <!-- Search & Filters -->
+      <div class="controls-panel glass-panel">
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="search-input" placeholder="Search topics, algorithms, math..." aria-label="Search roadmap topics">
+        </div>
+        
+        <div class="stats-container">
+          <div class="progress-details">
+            <span class="progress-label">Your Progress</span>
+            <span id="progress-percent" class="progress-value">0%</span>
+          </div>
+          <div class="progress-bar-container">
+            <div id="progress-bar-fill" class="progress-bar-fill"></div>
+          </div>
+          <span id="progress-text" class="progress-text">0 of 21 topics completed</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Phase Tabs -->
+    <nav class="phase-tabs-container" aria-label="Roadmap Phase Navigation">
+      <div class="phase-tabs">
+        <button class="tab-btn active" data-phase="all">All Phases</button>
+        <button class="tab-btn" data-phase="1">Math & Foundations</button>
+        <button class="tab-btn" data-phase="2">Programming & Data</button>
+        <button class="tab-btn" data-phase="3">Classical ML</button>
+        <button class="tab-btn" data-phase="4">Deep Learning</button>
+        <button class="tab-btn" data-phase="5">Advanced & GenAI</button>
+        <button class="tab-btn" data-phase="6">MLOps & Serving</button>
+      </div>
+    </nav>
+
+    <!-- Roadmap Timeline/Grid -->
+    <main class="roadmap-grid" id="roadmap-grid">
+      <!-- Generated dynamically in app.js -->
+    </main>
+
+    <footer class="app-footer">
+      <p>Interactive ML Roadmap &copy; 2026. Designed for modern machine learning engineering.</p>
+    </footer>
+  </div>
+
+  <!-- Detail Dialog Modal -->
+  <dialog id="topic-dialog" closedby="any" aria-labelledby="dialog-title">
+    <div class="dialog-content glass-panel">
+      <header class="dialog-header">
+        <div class="dialog-header-meta">
+          <span id="dialog-phase" class="phase-badge">Phase 1</span>
+          <span id="dialog-difficulty" class="diff-badge">Beginner</span>
+        </div>
+        <h2 id="dialog-title">Topic Title</h2>
+        <button class="close-btn" id="close-dialog-btn" aria-label="Close dialog">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </header>
+
+      <div class="dialog-body">
+        <div class="dialog-section concept-section">
+          <h3>Core Concept</h3>
+          <p id="dialog-concept">Concept description here...</p>
+        </div>
+
+        <div class="dialog-section math-section">
+          <h3>Mathematical Foundations</h3>
+          <div id="dialog-math" class="math-mathjax-container">
+            <!-- Math equations -->
+          </div>
+        </div>
+
+        <div class="dialog-section code-section">
+          <div class="code-section-header">
+            <h3>Python Implementation</h3>
+            <button class="copy-code-btn" id="copy-code-btn">
+              <span class="copy-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sm">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </span>
+              Copy
+            </button>
+          </div>
+          <pre><code id="dialog-code" class="language-python"># Python sample code</code></pre>
+        </div>
+
+        <div class="dialog-section resources-section">
+          <h3>Curated Study Resources</h3>
+          <div id="dialog-resources" class="resources-grid">
+            <!-- Resources links -->
+          </div>
+        </div>
+      </div>
+
+      <footer class="dialog-footer">
+        <button id="dialog-complete-toggle" class="btn-complete">
+          <span class="checkbox-box"></span>
+          Mark as Completed
+        </button>
+      </footer>
+    </div>
+  </dialog>
+
+  <!-- Load script files -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
