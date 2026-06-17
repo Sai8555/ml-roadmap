@@ -1,4 +1,4 @@
-const roadmapData = [
+export const roadmapData = [
   // PHASE 1
   {
     id: "linear-algebra",

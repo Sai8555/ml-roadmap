@@ -1,3 +1,5 @@
+import { roadmapData } from './data.js';
+
 // Application State
 let completedTopics = new Set();
 let currentPhaseFilter = 'all';
