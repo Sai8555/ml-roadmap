@@ -551,6 +551,7 @@ dialog {
   outline: none;
   overflow: visible;
   padding: 0;
+  color: var(--text-main);
 }
 
 dialog::backdrop {
